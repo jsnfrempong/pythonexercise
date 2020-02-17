@@ -1,0 +1,7 @@
+>>> spark = SparkSession.builder.getOrCreate()
+>>> pf = spark.read.parquet("C:\dlg\parquet-dataset-1581934029")
+>>> pf.createOrReplaceTempView("weather")
+>>> data= spark.sql("select ObservationDate,ScreenTemperature,Region from weather order by ScreenTemperature desc limit 1")
+>>> data.show()
+>>> spark.stop()
+>>> exit()
